@@ -1,5 +1,7 @@
 # Customizable Unit Converter
 This is a simple unit converter component featuring the ability to create and use your own custom conversions.
+
+Detailed code documentation can be found here: https://tautvisstan.github.io/UnitConverter/
 ## Installation
 The component is installed using:
 ``` Python
