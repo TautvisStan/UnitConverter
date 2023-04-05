@@ -12,7 +12,7 @@ The component is uninstalled using:
 ## Usage
 The component is imported using:
 ``` Python
->>> import UnitConverter
+>>> from UnitConverter import UnitConverter
 ```
 ### Built In Unit Conversions
 This component supports the following unit conversions:
