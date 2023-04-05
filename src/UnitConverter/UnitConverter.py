@@ -50,7 +50,7 @@ class BaseUnitConverter:
                  [0.45359237,453.59237,453592.37,0.0004535924,1,16,2267.96185],
                  [0.0283495231,28.349523125,28349.523125,0.0000283495,0.0625,1,141.74761563],
                  [0.0002,0.2,200,2e-7,0.0004409245,0.0070547924,1]]
-        return UnitConverter.Convert(amount, unitFrom, unitTo, Units, Matrix)
+        return Convert(amount, unitFrom, unitTo, Units, Matrix)
     
     def Length(amount:float, unitFrom:str, unitTo:str):
         ''' Length conversion method
@@ -72,7 +72,7 @@ class BaseUnitConverter:
                   [0.3048,0.0003048,30.48,304.8,0.0001893932,0.3333333333,1,12],
                   [0.0254,0.0000254,2.54,25.4,0.0000157828,0.0277777778,0.0833333333,1]]
 
-        return UnitConverter.Convert(amount, unitFrom, unitTo, Units, Matrix)
+        return Convert(amount, unitFrom, unitTo, Units, Matrix)
     
     def Area(amount:float, unitFrom:str, unitTo:str):
         ''' Area conversion method
@@ -96,7 +96,7 @@ class BaseUnitConverter:
                   [0.00064516,6.4516e-10,6.4516,6.4516e-8,1.594225079e-7,2.490976686e-10,0.0007716049,0.0069444444,1]]
 
 
-        return UnitConverter.Convert(amount, unitFrom, unitTo, Units, Matrix)
+        return Convert(amount, unitFrom, unitTo, Units, Matrix)
     
     def Volume(amount:float, unitFrom:str, unitTo:str):
         ''' Volume conversion method
@@ -118,7 +118,7 @@ class BaseUnitConverter:
                   [0.0283168466,28316.846592,28316846.592,28.316846592,28316.846592,0.037037037,1,1728],
                   [0.0000163871,16.387064,16387.064,0.016387064,16.387064,0.0000214335,0.0005787037,1]]
 
-        return UnitConverter.Convert(amount, unitFrom, unitTo, Units, Matrix)
+        return Convert(amount, unitFrom, unitTo, Units, Matrix)
     
     def Time(amount:float, unitFrom:str, unitTo:str):
         ''' Time conversion method
@@ -140,7 +140,7 @@ class BaseUnitConverter:
                   [2629800,2629800000,43830,730.5,30.4375,4.3482142857,1,0.0833333333],
                   [31557600,31557600000,525960,8766,365.25,52.178571429,12,1]]
 
-        return UnitConverter.Convert(amount, unitFrom, unitTo, Units, Matrix)
+        return Convert(amount, unitFrom, unitTo, Units, Matrix)
 
 class CustomConverter:
     '''
@@ -235,4 +235,4 @@ class CustomConverter:
         Returns:
             | float - conversion result
         '''
-        return UnitConverter.Convert(amount, unitFrom, unitTo, self.Units, self.Matrix)
+        return BaseUnitConverter.Convert(amount, unitFrom, unitTo, self.Units, self.Matrix)

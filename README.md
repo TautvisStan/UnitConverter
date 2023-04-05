@@ -12,8 +12,7 @@ The component is uninstalled using:
 ## Usage
 The component is imported using:
 ``` Python
->>> from UnitConverter import BaseUnitConverter
->>> from UnitConverter import CustomConverter
+>>> import UnitConverter
 ```
 ### Built In Unit Conversions
 This component supports the following unit conversions:
@@ -29,11 +28,11 @@ This component supports the following unit conversions:
 
 To use these conversions:
 
-&emsp;&emsp;BaseUnitConverter.<i>Type</i>(<i>Amount</i>, "<i>Abbreviation</i>", "<i>Abbreviation</i>")
+&emsp;&emsp;UnitConverter.BaseUnitConverter.<i>Type</i>(<i>Amount</i>, "<i>Abbreviation</i>", "<i>Abbreviation</i>")
 
 Example:
 ``` Python
->>> BaseUnitConverter.Weight(5, "kg", "lbs")
+>>> UnitConverter.BaseUnitConverter.Weight(5, "kg", "lbs")
 11.023113109
 ```
 ### Customizable Unit Converter
@@ -56,7 +55,7 @@ Next step is to define the conversion coeffients. Let's say that `1 Aaa = 2 Bbb`
 ```
 Creating our custom converter object with these parameters:
 ``` Python
->>> MyCustomConverter = CustomConverter(Units, Matrix)
+>>> MyCustomConverter = UnitConverter.CustomConverter(Units, Matrix)
 ```
 The conversions are done the same way as before:
 ``` Python
