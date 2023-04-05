@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UnitConverter.UnitConverter &mdash; UnitConverter Documentation 0.2.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            UnitConverter Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">UnitConverter Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">UnitConverter.UnitConverter</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for UnitConverter.UnitConverter</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">This module will let you convert one measurement unit to another.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<div class="viewcode-block" id="BaseUnitConverter"><a class="viewcode-back" href="../../UnitConverter.html#UnitConverter.UnitConverter.BaseUnitConverter">[docs]</a><span class="k">class</span> <span class="nc">BaseUnitConverter</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    The base class. It has the five main conversion types</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+<div class="viewcode-block" id="BaseUnitConverter.Convert"><a class="viewcode-back" href="../../UnitConverter.html#UnitConverter.UnitConverter.BaseUnitConverter.Convert">[docs]</a>    <span class="k">def</span> <span class="nf">Convert</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">Units</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; This method does the conversion from the current unit to the new unit. You can use it if you want to define your own custom conversions.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">           | amount (float) - amount of current units </span>
+<span class="sd">           | unitFrom (string) - current unit </span>
+<span class="sd">           | unitTo (string) - new unit</span>
+<span class="sd">           | Units (string array) - array of all supported units that can be converted to each other</span>
+<span class="sd">           | Matrix (float matrix) - conversion matrix at the size of [Units][Units]</span>
+<span class="sd">        Returns:</span>
+<span class="sd">           | float - conversion result</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">unitFromIndex</span> <span class="o">=</span> <span class="n">Units</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">unitFrom</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">unitFromIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">unitToIndex</span> <span class="o">=</span> <span class="n">Units</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">unitTo</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">unitToIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">unitFromIndex</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Current unit not found: &quot;</span> <span class="o">+</span> <span class="n">unitFrom</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">unitToIndex</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;New unit not found: &quot;</span> <span class="o">+</span> <span class="n">unitTo</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">unitFromIndex</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">unitToIndex</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">amount</span> <span class="o">*</span> <span class="n">Matrix</span><span class="p">[</span><span class="n">unitFromIndex</span><span class="p">][</span><span class="n">unitToIndex</span><span class="p">]</span></div>
+        
+<div class="viewcode-block" id="BaseUnitConverter.Weight"><a class="viewcode-back" href="../../UnitConverter.html#UnitConverter.UnitConverter.BaseUnitConverter.Weight">[docs]</a>    <span class="k">def</span> <span class="nf">Weight</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Weight conversion method</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            | amount (float) - amount of current units</span>
+<span class="sd">            | unitFrom (string) - current unit</span>
+<span class="sd">            | unitTo (string) - new unit</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            | float - conversion result</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">Units</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;kg&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;mg&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;lbs&quot;</span><span class="p">,</span> <span class="s2">&quot;oz&quot;</span><span class="p">,</span> <span class="s2">&quot;car&quot;</span><span class="p">]</span>
+        <span class="n">Matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">2.2046226218</span> <span class="p">,</span> <span class="mf">35.27396195</span> <span class="p">,</span> <span class="mi">5000</span> <span class="p">],</span>
+                 <span class="p">[</span><span class="mf">0.001</span> <span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span> <span class="p">,</span><span class="mf">0.000001</span><span class="p">,</span><span class="mf">0.0022046226</span><span class="p">,</span><span class="mf">0.0352739619</span><span class="p">,</span><span class="mi">5</span> <span class="p">],</span>
+                 <span class="p">[</span><span class="mf">0.000001</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1e-9</span><span class="p">,</span><span class="mf">0.0000022046</span><span class="p">,</span><span class="mf">0.000035274</span><span class="p">,</span><span class="mf">0.005</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1000000</span><span class="p">,</span><span class="mi">1000000000</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">2204.6226218</span><span class="p">,</span><span class="mf">35273.96195</span><span class="p">,</span><span class="mi">5000000</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">0.45359237</span><span class="p">,</span><span class="mf">453.59237</span><span class="p">,</span><span class="mf">453592.37</span><span class="p">,</span><span class="mf">0.0004535924</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mf">2267.96185</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">0.0283495231</span><span class="p">,</span><span class="mf">28.349523125</span><span class="p">,</span><span class="mf">28349.523125</span><span class="p">,</span><span class="mf">0.0000283495</span><span class="p">,</span><span class="mf">0.0625</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">141.74761563</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">0.0002</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mf">2e-7</span><span class="p">,</span><span class="mf">0.0004409245</span><span class="p">,</span><span class="mf">0.0070547924</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="n">BaseUnitConverter</span><span class="o">.</span><span class="n">Convert</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">,</span> <span class="n">Units</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="BaseUnitConverter.Length"><a class="viewcode-back" href="../../UnitConverter.html#UnitConverter.UnitConverter.BaseUnitConverter.Length">[docs]</a>    <span class="k">def</span> <span class="nf">Length</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Length conversion method</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            | amount (float) - amount of current units</span>
+<span class="sd">            | unitFrom (string) - current unit</span>
+<span class="sd">            | unitTo (string) - new unit</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            | float - conversion result</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">Units</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;km&quot;</span><span class="p">,</span> <span class="s2">&quot;cm&quot;</span><span class="p">,</span> <span class="s2">&quot;mm&quot;</span><span class="p">,</span> <span class="s2">&quot;mi&quot;</span><span class="p">,</span> <span class="s2">&quot;yd&quot;</span><span class="p">,</span> <span class="s2">&quot;ft&quot;</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">]</span>
+        <span class="n">Matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.001</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mf">0.0006213689</span><span class="p">,</span><span class="mf">1.0936132983</span><span class="p">,</span><span class="mf">3.280839895</span><span class="p">,</span><span class="mf">39.37007874</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100000</span><span class="p">,</span><span class="mi">1000000</span><span class="p">,</span><span class="mf">0.6213688756</span><span class="p">,</span><span class="mf">1093.6132983</span><span class="p">,</span><span class="mf">3280.839895</span><span class="p">,</span><span class="mf">39370.07874</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.00001</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.0000062137</span><span class="p">,</span><span class="mf">0.010936133</span><span class="p">,</span><span class="mf">0.032808399</span><span class="p">,</span><span class="mf">0.3937007874</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.000001</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">6.213688756e-7</span><span class="p">,</span><span class="mf">0.0010936133</span><span class="p">,</span><span class="mf">0.0032808399</span><span class="p">,</span><span class="mf">0.0393700787</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">1609.35</span><span class="p">,</span><span class="mf">1.60935</span><span class="p">,</span><span class="mi">160935</span><span class="p">,</span><span class="mi">1609350</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1760.0065617</span><span class="p">,</span><span class="mf">5280.019685</span><span class="p">,</span><span class="mf">63360.23622</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.9144</span><span class="p">,</span><span class="mf">0.0009144</span><span class="p">,</span><span class="mf">91.44</span><span class="p">,</span><span class="mf">914.4</span><span class="p">,</span><span class="mf">0.0005681797</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">36</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.3048</span><span class="p">,</span><span class="mf">0.0003048</span><span class="p">,</span><span class="mf">30.48</span><span class="p">,</span><span class="mf">304.8</span><span class="p">,</span><span class="mf">0.0001893932</span><span class="p">,</span><span class="mf">0.3333333333</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.0254</span><span class="p">,</span><span class="mf">0.0000254</span><span class="p">,</span><span class="mf">2.54</span><span class="p">,</span><span class="mf">25.4</span><span class="p">,</span><span class="mf">0.0000157828</span><span class="p">,</span><span class="mf">0.0277777778</span><span class="p">,</span><span class="mf">0.0833333333</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+
+        <span class="k">return</span> <span class="n">BaseUnitConverter</span><span class="o">.</span><span class="n">Convert</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">,</span> <span class="n">Units</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="BaseUnitConverter.Area"><a class="viewcode-back" href="../../UnitConverter.html#UnitConverter.UnitConverter.BaseUnitConverter.Area">[docs]</a>    <span class="k">def</span> <span class="nf">Area</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Area conversion method</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            | amount (float) - amount of current units</span>
+<span class="sd">            | unitFrom (string) - current unit</span>
+<span class="sd">            | unitTo (string) - new unit</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            | float - conversion result</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">Units</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;m^2&quot;</span><span class="p">,</span> <span class="s2">&quot;km^2&quot;</span><span class="p">,</span> <span class="s2">&quot;cm^2&quot;</span><span class="p">,</span> <span class="s2">&quot;ha&quot;</span><span class="p">,</span> <span class="s2">&quot;ac&quot;</span><span class="p">,</span> <span class="s2">&quot;mi^2&quot;</span><span class="p">,</span> <span class="s2">&quot;yd^2&quot;</span><span class="p">,</span> <span class="s2">&quot;ft^2&quot;</span><span class="p">,</span> <span class="s2">&quot;in^2&quot;</span><span class="p">]</span>
+        <span class="n">Matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.000001</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">0.0002471054</span><span class="p">,</span><span class="mf">3.861021585e-7</span><span class="p">,</span><span class="mf">1.1959900463</span><span class="p">,</span><span class="mf">10.763910417</span><span class="p">,</span><span class="mf">1550.0031</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1000000</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000000000</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mf">247.10538147</span><span class="p">,</span><span class="mf">0.3861021585</span><span class="p">,</span><span class="mf">1195990.0463</span><span class="p">,</span><span class="mf">10763910.417</span><span class="p">,</span><span class="mi">1550003100</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">1e-10</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1e-8</span><span class="p">,</span><span class="mf">2.471053814e-8</span><span class="p">,</span><span class="mf">3.861021585e-11</span><span class="p">,</span><span class="mf">0.000119599</span><span class="p">,</span><span class="mf">0.001076391</span><span class="p">,</span><span class="mf">0.15500031</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">10000</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">100000000</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">2.4710538147</span><span class="p">,</span><span class="mf">0.0038610216</span><span class="p">,</span><span class="mf">11959.900463</span><span class="p">,</span><span class="mf">107639.10417</span><span class="p">,</span><span class="mi">15500031</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">4046.8564224</span><span class="p">,</span><span class="mf">0.0040468564</span><span class="p">,</span><span class="mf">40468564.224</span><span class="p">,</span><span class="mf">0.4046856422</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.0015625</span><span class="p">,</span><span class="mi">4840</span><span class="p">,</span><span class="mi">43560</span><span class="p">,</span><span class="mi">6272640</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">2589988.1103</span><span class="p">,</span><span class="mf">2.5899881103</span><span class="p">,</span><span class="mi">25899881103</span><span class="p">,</span><span class="mf">258.99881103</span><span class="p">,</span><span class="mi">640</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3097600</span><span class="p">,</span><span class="mi">27878400</span><span class="p">,</span><span class="mi">4014489600</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.83612736</span><span class="p">,</span><span class="mf">8.361273599e-7</span><span class="p">,</span><span class="mf">8361.2736</span><span class="p">,</span><span class="mf">0.0000836127</span><span class="p">,</span><span class="mf">0.0002066116</span><span class="p">,</span><span class="mf">3.228305785e-7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">1296</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.09290304</span><span class="p">,</span><span class="mf">9.290303999e-8</span><span class="p">,</span><span class="mf">929.0304</span><span class="p">,</span><span class="mf">0.0000092903</span><span class="p">,</span><span class="mf">0.0000229568</span><span class="p">,</span><span class="mf">3.587006427e-8</span><span class="p">,</span><span class="mf">0.1111111111</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">144</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.00064516</span><span class="p">,</span><span class="mf">6.4516e-10</span><span class="p">,</span><span class="mf">6.4516</span><span class="p">,</span><span class="mf">6.4516e-8</span><span class="p">,</span><span class="mf">1.594225079e-7</span><span class="p">,</span><span class="mf">2.490976686e-10</span><span class="p">,</span><span class="mf">0.0007716049</span><span class="p">,</span><span class="mf">0.0069444444</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+
+
+        <span class="k">return</span> <span class="n">BaseUnitConverter</span><span class="o">.</span><span class="n">Convert</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">,</span> <span class="n">Units</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="BaseUnitConverter.Volume"><a class="viewcode-back" href="../../UnitConverter.html#UnitConverter.UnitConverter.BaseUnitConverter.Volume">[docs]</a>    <span class="k">def</span> <span class="nf">Volume</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Volume conversion method</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            | amount (float) - amount of current units</span>
+<span class="sd">            | unitFrom (string) - current unit</span>
+<span class="sd">            | unitTo (string) - new unit</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            | float - conversion result</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">Units</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;m^3&quot;</span><span class="p">,</span> <span class="s2">&quot;cm^3&quot;</span><span class="p">,</span> <span class="s2">&quot;mm^3&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;mL&quot;</span><span class="p">,</span> <span class="s2">&quot;yd^3&quot;</span><span class="p">,</span> <span class="s2">&quot;ft^3&quot;</span><span class="p">,</span> <span class="s2">&quot;in^3&quot;</span><span class="p">]</span>
+        <span class="n">Matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000000</span><span class="p">,</span><span class="mi">1000000000</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1000000</span><span class="p">,</span><span class="mf">1.3079506193</span><span class="p">,</span><span class="mf">35.314666721</span><span class="p">,</span><span class="mf">61023.744095</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.000001</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mf">0.001</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.000001308</span><span class="p">,</span><span class="mf">0.0000353147</span><span class="p">,</span><span class="mf">0.0610237441</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">1e-9</span><span class="p">,</span><span class="mf">0.001</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.000001</span><span class="p">,</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">1.307950619e-9</span><span class="p">,</span><span class="mf">3.531466672e-8</span><span class="p">,</span><span class="mf">0.0000610237</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1000000</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mf">0.0013079506</span><span class="p">,</span><span class="mf">0.0353146667</span><span class="p">,</span><span class="mf">61.023744095</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.000001</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mf">0.001</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.000001308</span><span class="p">,</span><span class="mf">0.0000353147</span><span class="p">,</span><span class="mf">0.0610237441</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.764554858</span><span class="p">,</span><span class="mf">764554.85798</span><span class="p">,</span><span class="mf">764554857.98</span><span class="p">,</span><span class="mf">764.55485798</span><span class="p">,</span><span class="mf">764554.85798</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">46656</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.0283168466</span><span class="p">,</span><span class="mf">28316.846592</span><span class="p">,</span><span class="mf">28316846.592</span><span class="p">,</span><span class="mf">28.316846592</span><span class="p">,</span><span class="mf">28316.846592</span><span class="p">,</span><span class="mf">0.037037037</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1728</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.0000163871</span><span class="p">,</span><span class="mf">16.387064</span><span class="p">,</span><span class="mf">16387.064</span><span class="p">,</span><span class="mf">0.016387064</span><span class="p">,</span><span class="mf">16.387064</span><span class="p">,</span><span class="mf">0.0000214335</span><span class="p">,</span><span class="mf">0.0005787037</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+
+        <span class="k">return</span> <span class="n">BaseUnitConverter</span><span class="o">.</span><span class="n">Convert</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">,</span> <span class="n">Units</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="BaseUnitConverter.Time"><a class="viewcode-back" href="../../UnitConverter.html#UnitConverter.UnitConverter.BaseUnitConverter.Time">[docs]</a>    <span class="k">def</span> <span class="nf">Time</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Time conversion method</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            | amount (float) - amount of current units</span>
+<span class="sd">            | unitFrom (string) - current unit</span>
+<span class="sd">            | unitTo (string) - new unit</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            | float - conversion result</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">Units</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;week&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">]</span>
+        <span class="n">Matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mf">0.0166666667</span><span class="p">,</span><span class="mf">0.0002777778</span><span class="p">,</span><span class="mf">0.0000115741</span><span class="p">,</span><span class="mf">0.0000016534</span><span class="p">,</span><span class="mf">3.802570537e-7</span><span class="p">,</span><span class="mf">3.168808781e-8</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.0000166667</span><span class="p">,</span><span class="mf">2.777777777e-7</span><span class="p">,</span><span class="mf">1.157407407e-8</span><span class="p">,</span><span class="mf">1.653439153e-9</span><span class="p">,</span><span class="mf">3.802570537e-10</span><span class="p">,</span><span class="mf">3.168808781e-11</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">60</span><span class="p">,</span><span class="mi">60000</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.0166666667</span><span class="p">,</span><span class="mf">0.0006944444</span><span class="p">,</span><span class="mf">0.0000992063</span><span class="p">,</span><span class="mf">0.0000228154</span><span class="p">,</span><span class="mf">0.0000019013</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">3600</span><span class="p">,</span><span class="mi">3600000</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.0416666667</span><span class="p">,</span><span class="mf">0.005952381</span><span class="p">,</span><span class="mf">0.0013689254</span><span class="p">,</span><span class="mf">0.0001140771</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">86400</span><span class="p">,</span><span class="mi">86400000</span><span class="p">,</span><span class="mi">1440</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1428571429</span><span class="p">,</span><span class="mf">0.0328542094</span><span class="p">,</span><span class="mf">0.0027378508</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">604800</span><span class="p">,</span><span class="mi">604800000</span><span class="p">,</span><span class="mi">10080</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.2299794661</span><span class="p">,</span><span class="mf">0.0191649555</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">2629800</span><span class="p">,</span><span class="mi">2629800000</span><span class="p">,</span><span class="mi">43830</span><span class="p">,</span><span class="mf">730.5</span><span class="p">,</span><span class="mf">30.4375</span><span class="p">,</span><span class="mf">4.3482142857</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.0833333333</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">31557600</span><span class="p">,</span><span class="mi">31557600000</span><span class="p">,</span><span class="mi">525960</span><span class="p">,</span><span class="mi">8766</span><span class="p">,</span><span class="mf">365.25</span><span class="p">,</span><span class="mf">52.178571429</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+
+        <span class="k">return</span> <span class="n">BaseUnitConverter</span><span class="o">.</span><span class="n">Convert</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">,</span> <span class="n">Units</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="CustomConverter"><a class="viewcode-back" href="../../UnitConverter.html#UnitConverter.UnitConverter.CustomConverter">[docs]</a><span class="k">class</span> <span class="nc">CustomConverter</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    The customizable unit converter class</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Units</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            | Units (string array) - array of all supported units that can be converted to each other</span>
+<span class="sd">            | Matrix (float matrix) - conversion matrix at the size of [Units][Units]</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">ArrayLength</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Units</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Units</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">Units</span><span class="p">))):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Unit array contains duplicates!&quot;</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Matrix</span><span class="p">)</span> <span class="o">==</span> <span class="n">ArrayLength</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">Matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="n">ArrayLength</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Units</span> <span class="o">=</span> <span class="n">Units</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Matrix</span> <span class="o">=</span> <span class="n">Matrix</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Unit array and conversion matrix sizes does not match!&quot;</span><span class="p">)</span>
+        
+<div class="viewcode-block" id="CustomConverter.Print"><a class="viewcode-back" href="../../UnitConverter.html#UnitConverter.UnitConverter.CustomConverter.Print">[docs]</a>    <span class="k">def</span> <span class="nf">Print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Units</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Converter parameter print method</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            | Units (bool) - Should it print the units?</span>
+<span class="sd">            | Matrix (bool) - Should it print the matrix?</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">Units</span> <span class="o">==</span> <span class="kc">True</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Units</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">Matrix</span> <span class="o">==</span> <span class="kc">True</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Matrix</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">Units</span> <span class="o">==</span> <span class="kc">False</span> <span class="ow">and</span> <span class="n">Matrix</span> <span class="o">==</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Units</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Matrix</span><span class="p">)</span></div>
+<div class="viewcode-block" id="CustomConverter.ChangeSingle"><a class="viewcode-back" href="../../UnitConverter.html#UnitConverter.UnitConverter.CustomConverter.ChangeSingle">[docs]</a>    <span class="k">def</span> <span class="nf">ChangeSingle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">UnitFrom</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">UnitTo</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">Conversion</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Single conversion change method</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            | unitFrom (string) - current unit</span>
+<span class="sd">            | unitTo (string) - new unit</span>
+<span class="sd">            | Conversion (float) - conversion coefficient</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">unitFromIndex</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Units</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">UnitFrom</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">unitFromIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">unitToIndex</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Units</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">UnitTo</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">unitToIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">unitFromIndex</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Current unit not found: &quot;</span> <span class="o">+</span> <span class="n">UnitFrom</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">unitToIndex</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;New unit not found: &quot;</span> <span class="o">+</span> <span class="n">UnitTo</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">unitFromIndex</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">unitToIndex</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Matrix</span><span class="p">[</span><span class="n">unitFromIndex</span><span class="p">][</span><span class="n">unitToIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">Conversion</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Matrix</span><span class="p">[</span><span class="n">unitToIndex</span><span class="p">][</span><span class="n">unitFromIndex</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Conversion</span></div>
+<div class="viewcode-block" id="CustomConverter.Change"><a class="viewcode-back" href="../../UnitConverter.html#UnitConverter.UnitConverter.CustomConverter.Change">[docs]</a>    <span class="k">def</span> <span class="nf">Change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Units</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Converter parameter change method. Both arguments are optional.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            | Units (string array) - array of all supported units that can be converted to each other</span>
+<span class="sd">            | Matrix (float matrix) - conversion matrix at the size of [Units][Units]</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">Units</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">Matrix</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Units</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">Units</span><span class="p">))):</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Unit array contains duplicates!&quot;</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Units</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">Matrix</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">Units</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">Matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">Units</span> <span class="o">=</span> <span class="n">Units</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">Matrix</span> <span class="o">=</span> <span class="n">Matrix</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Unit array and conversion matrix sizes does not match!&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">Units</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Units</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Units</span><span class="p">)):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Units</span> <span class="o">=</span> <span class="n">Units</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Unit array length does not match!&quot;</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">Matrix</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Matrix</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Matrix</span><span class="p">)):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Matrix</span> <span class="o">=</span> <span class="n">Matrix</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Conversion matrix size does not match!&quot;</span><span class="p">)</span></div>
+                
+<div class="viewcode-block" id="CustomConverter.Convert"><a class="viewcode-back" href="../../UnitConverter.html#UnitConverter.UnitConverter.CustomConverter.Convert">[docs]</a>    <span class="k">def</span> <span class="nf">Convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Unit conversion method.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            | amount (float) - amount of current units</span>
+<span class="sd">            | unitFrom (string) - current unit</span>
+<span class="sd">            | unitTo (string) - new unit</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            | float - conversion result</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="n">BaseUnitConverter</span><span class="o">.</span><span class="n">Convert</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">unitFrom</span><span class="p">,</span> <span class="n">unitTo</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Units</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Matrix</span><span class="p">)</span></div></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, tausta3.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

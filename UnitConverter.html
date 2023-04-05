@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UnitConverter package &mdash; UnitConverter Documentation 0.2.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            UnitConverter Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">UnitConverter package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-UnitConverter.UnitConverter">UnitConverter.UnitConverter module</a><ul>
+<li><a class="reference internal" href="#UnitConverter.UnitConverter.BaseUnitConverter"><code class="docutils literal notranslate"><span class="pre">BaseUnitConverter</span></code></a><ul>
+<li><a class="reference internal" href="#UnitConverter.UnitConverter.BaseUnitConverter.Area"><code class="docutils literal notranslate"><span class="pre">BaseUnitConverter.Area()</span></code></a></li>
+<li><a class="reference internal" href="#UnitConverter.UnitConverter.BaseUnitConverter.Convert"><code class="docutils literal notranslate"><span class="pre">BaseUnitConverter.Convert()</span></code></a></li>
+<li><a class="reference internal" href="#UnitConverter.UnitConverter.BaseUnitConverter.Length"><code class="docutils literal notranslate"><span class="pre">BaseUnitConverter.Length()</span></code></a></li>
+<li><a class="reference internal" href="#UnitConverter.UnitConverter.BaseUnitConverter.Time"><code class="docutils literal notranslate"><span class="pre">BaseUnitConverter.Time()</span></code></a></li>
+<li><a class="reference internal" href="#UnitConverter.UnitConverter.BaseUnitConverter.Volume"><code class="docutils literal notranslate"><span class="pre">BaseUnitConverter.Volume()</span></code></a></li>
+<li><a class="reference internal" href="#UnitConverter.UnitConverter.BaseUnitConverter.Weight"><code class="docutils literal notranslate"><span class="pre">BaseUnitConverter.Weight()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#UnitConverter.UnitConverter.CustomConverter"><code class="docutils literal notranslate"><span class="pre">CustomConverter</span></code></a><ul>
+<li><a class="reference internal" href="#UnitConverter.UnitConverter.CustomConverter.Change"><code class="docutils literal notranslate"><span class="pre">CustomConverter.Change()</span></code></a></li>
+<li><a class="reference internal" href="#UnitConverter.UnitConverter.CustomConverter.ChangeSingle"><code class="docutils literal notranslate"><span class="pre">CustomConverter.ChangeSingle()</span></code></a></li>
+<li><a class="reference internal" href="#UnitConverter.UnitConverter.CustomConverter.Convert"><code class="docutils literal notranslate"><span class="pre">CustomConverter.Convert()</span></code></a></li>
+<li><a class="reference internal" href="#UnitConverter.UnitConverter.CustomConverter.Print"><code class="docutils literal notranslate"><span class="pre">CustomConverter.Print()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-UnitConverter">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UnitConverter Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">UnitConverter package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/UnitConverter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="unitconverter-package">
+<h1>UnitConverter package<a class="headerlink" href="#unitconverter-package" title="Permalink to this heading"></a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="module-UnitConverter.UnitConverter">
+<span id="unitconverter-unitconverter-module"></span><h2>UnitConverter.UnitConverter module<a class="headerlink" href="#module-UnitConverter.UnitConverter" title="Permalink to this heading"></a></h2>
+<p>This module will let you convert one measurement unit to another.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="UnitConverter.UnitConverter.BaseUnitConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UnitConverter.UnitConverter.</span></span><span class="sig-name descname"><span class="pre">BaseUnitConverter</span></span><a class="reference internal" href="_modules/UnitConverter/UnitConverter.html#BaseUnitConverter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#UnitConverter.UnitConverter.BaseUnitConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The base class. It has the five main conversion types</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="UnitConverter.UnitConverter.BaseUnitConverter.Area">
+<span class="sig-name descname"><span class="pre">Area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unitFrom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unitTo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/UnitConverter/UnitConverter.html#BaseUnitConverter.Area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#UnitConverter.UnitConverter.BaseUnitConverter.Area" title="Permalink to this definition"></a></dt>
+<dd><p>Area conversion method</p>
+<dl>
+<dt>Args:</dt><dd><div class="line-block">
+<div class="line">amount (float) - amount of current units</div>
+<div class="line">unitFrom (string) - current unit</div>
+<div class="line">unitTo (string) - new unit</div>
+</div>
+</dd>
+<dt>Returns:</dt><dd><div class="line-block">
+<div class="line">float - conversion result</div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UnitConverter.UnitConverter.BaseUnitConverter.Convert">
+<span class="sig-name descname"><span class="pre">Convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unitFrom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unitTo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/UnitConverter/UnitConverter.html#BaseUnitConverter.Convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#UnitConverter.UnitConverter.BaseUnitConverter.Convert" title="Permalink to this definition"></a></dt>
+<dd><p>This method does the conversion from the current unit to the new unit. You can use it if you want to define your own custom conversions.</p>
+<dl>
+<dt>Args:</dt><dd><div class="line-block">
+<div class="line">amount (float) - amount of current units </div>
+<div class="line">unitFrom (string) - current unit </div>
+<div class="line">unitTo (string) - new unit</div>
+<div class="line">Units (string array) - array of all supported units that can be converted to each other</div>
+<div class="line">Matrix (float matrix) - conversion matrix at the size of [Units][Units]</div>
+</div>
+</dd>
+<dt>Returns:</dt><dd><div class="line-block">
+<div class="line">float - conversion result</div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UnitConverter.UnitConverter.BaseUnitConverter.Length">
+<span class="sig-name descname"><span class="pre">Length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unitFrom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unitTo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/UnitConverter/UnitConverter.html#BaseUnitConverter.Length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#UnitConverter.UnitConverter.BaseUnitConverter.Length" title="Permalink to this definition"></a></dt>
+<dd><p>Length conversion method</p>
+<dl>
+<dt>Args:</dt><dd><div class="line-block">
+<div class="line">amount (float) - amount of current units</div>
+<div class="line">unitFrom (string) - current unit</div>
+<div class="line">unitTo (string) - new unit</div>
+</div>
+</dd>
+<dt>Returns:</dt><dd><div class="line-block">
+<div class="line">float - conversion result</div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UnitConverter.UnitConverter.BaseUnitConverter.Time">
+<span class="sig-name descname"><span class="pre">Time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unitFrom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unitTo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/UnitConverter/UnitConverter.html#BaseUnitConverter.Time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#UnitConverter.UnitConverter.BaseUnitConverter.Time" title="Permalink to this definition"></a></dt>
+<dd><p>Time conversion method</p>
+<dl>
+<dt>Args:</dt><dd><div class="line-block">
+<div class="line">amount (float) - amount of current units</div>
+<div class="line">unitFrom (string) - current unit</div>
+<div class="line">unitTo (string) - new unit</div>
+</div>
+</dd>
+<dt>Returns:</dt><dd><div class="line-block">
+<div class="line">float - conversion result</div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UnitConverter.UnitConverter.BaseUnitConverter.Volume">
+<span class="sig-name descname"><span class="pre">Volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unitFrom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unitTo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/UnitConverter/UnitConverter.html#BaseUnitConverter.Volume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#UnitConverter.UnitConverter.BaseUnitConverter.Volume" title="Permalink to this definition"></a></dt>
+<dd><p>Volume conversion method</p>
+<dl>
+<dt>Args:</dt><dd><div class="line-block">
+<div class="line">amount (float) - amount of current units</div>
+<div class="line">unitFrom (string) - current unit</div>
+<div class="line">unitTo (string) - new unit</div>
+</div>
+</dd>
+<dt>Returns:</dt><dd><div class="line-block">
+<div class="line">float - conversion result</div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UnitConverter.UnitConverter.BaseUnitConverter.Weight">
+<span class="sig-name descname"><span class="pre">Weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unitFrom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unitTo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/UnitConverter/UnitConverter.html#BaseUnitConverter.Weight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#UnitConverter.UnitConverter.BaseUnitConverter.Weight" title="Permalink to this definition"></a></dt>
+<dd><p>Weight conversion method</p>
+<dl>
+<dt>Args:</dt><dd><div class="line-block">
+<div class="line">amount (float) - amount of current units</div>
+<div class="line">unitFrom (string) - current unit</div>
+<div class="line">unitTo (string) - new unit</div>
+</div>
+</dd>
+<dt>Returns:</dt><dd><div class="line-block">
+<div class="line">float - conversion result</div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="UnitConverter.UnitConverter.CustomConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UnitConverter.UnitConverter.</span></span><span class="sig-name descname"><span class="pre">CustomConverter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/UnitConverter/UnitConverter.html#CustomConverter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#UnitConverter.UnitConverter.CustomConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The customizable unit converter class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="UnitConverter.UnitConverter.CustomConverter.Change">
+<span class="sig-name descname"><span class="pre">Change</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/UnitConverter/UnitConverter.html#CustomConverter.Change"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#UnitConverter.UnitConverter.CustomConverter.Change" title="Permalink to this definition"></a></dt>
+<dd><p>Converter parameter change method. Both arguments are optional.</p>
+<dl>
+<dt>Args:</dt><dd><div class="line-block">
+<div class="line">Units (string array) - array of all supported units that can be converted to each other</div>
+<div class="line">Matrix (float matrix) - conversion matrix at the size of [Units][Units]</div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UnitConverter.UnitConverter.CustomConverter.ChangeSingle">
+<span class="sig-name descname"><span class="pre">ChangeSingle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">UnitFrom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">UnitTo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Conversion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/UnitConverter/UnitConverter.html#CustomConverter.ChangeSingle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#UnitConverter.UnitConverter.CustomConverter.ChangeSingle" title="Permalink to this definition"></a></dt>
+<dd><p>Single conversion change method</p>
+<dl>
+<dt>Args:</dt><dd><div class="line-block">
+<div class="line">unitFrom (string) - current unit</div>
+<div class="line">unitTo (string) - new unit</div>
+<div class="line">Conversion (float) - conversion coefficient</div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UnitConverter.UnitConverter.CustomConverter.Convert">
+<span class="sig-name descname"><span class="pre">Convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unitFrom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unitTo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/UnitConverter/UnitConverter.html#CustomConverter.Convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#UnitConverter.UnitConverter.CustomConverter.Convert" title="Permalink to this definition"></a></dt>
+<dd><p>Unit conversion method.</p>
+<dl>
+<dt>Args:</dt><dd><div class="line-block">
+<div class="line">amount (float) - amount of current units</div>
+<div class="line">unitFrom (string) - current unit</div>
+<div class="line">unitTo (string) - new unit</div>
+</div>
+</dd>
+<dt>Returns:</dt><dd><div class="line-block">
+<div class="line">float - conversion result</div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UnitConverter.UnitConverter.CustomConverter.Print">
+<span class="sig-name descname"><span class="pre">Print</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/UnitConverter/UnitConverter.html#CustomConverter.Print"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#UnitConverter.UnitConverter.CustomConverter.Print" title="Permalink to this definition"></a></dt>
+<dd><p>Converter parameter print method</p>
+<dl>
+<dt>Args:</dt><dd><div class="line-block">
+<div class="line">Units (bool) - Should it print the units?</div>
+<div class="line">Matrix (bool) - Should it print the matrix?</div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-UnitConverter">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-UnitConverter" title="Permalink to this heading"></a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, tausta3.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

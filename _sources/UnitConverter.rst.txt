@@ -1,0 +1,21 @@
+UnitConverter package
+=====================
+
+Submodules
+----------
+
+UnitConverter.UnitConverter module
+----------------------------------
+
+.. automodule:: UnitConverter.UnitConverter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: UnitConverter
+   :members:
+   :undoc-members:
+   :show-inheritance:
